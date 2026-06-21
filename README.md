@@ -1,5 +1,15 @@
 # 🚦 Flow4Ward — Event-Driven Traffic Congestion Intelligence
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Live%20Demo-flow4ward.onrender.com-00C896?style=for-the-badge&logo=render&logoColor=white" />
+</p>
+
+<p align="center">
+  <a href="https://flow4ward.onrender.com" target="_blank">
+    <strong>🌐 https://flow4ward.onrender.com</strong>
+  </a>
+</p>
+
 > **Hackathon Round 2** — AI-powered traffic prediction, resource allocation & decision support for Bengaluru traffic police, trained on real Astram incident data (8,205 incidents, Nov 2023 – Mar 2024).
 
 <p align="center">
@@ -9,11 +19,34 @@
   <img src="https://img.shields.io/badge/Socket.io-4.x-010101?logo=socketdotio" />
   <img src="https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white" />
+  <img src="https://img.shields.io/badge/Deployed%20on-Render-46E3B7?logo=render&logoColor=white" />
 </p>
 
 ---
 
-## ⚡ Quick Start (Single Command)
+## 🌐 Live Demo
+
+| Link | Description |
+|---|---|
+| **[https://flow4ward.onrender.com](https://flow4ward.onrender.com)** | Full-stack live deployment (Frontend + Backend + ML) |
+
+> **Note:** The app is hosted on Render's free tier — the backend may take **~30 seconds to wake up** on first load. Please wait briefly if the dashboard appears to be loading.
+
+---
+
+## 📌 What is Flow4Ward?
+
+**Flow4Ward** is a real-time traffic intelligence command center built for Bengaluru traffic authorities. It combines:
+
+- 🤖 **Machine Learning** — 3 scikit-learn models trained on 8,205 real Astram incidents to predict traffic impact, road closures, and officer requirements
+- 📡 **Live WebSocket Traffic** — Real-time congestion data streamed every 30 seconds across 6 Bengaluru zones
+- 🗺️ **Junction Impact Mapping** — Risk analysis for 10 critical Bengaluru junctions (Silk Board, Hebbal, KR Puram, etc.)
+- 👮 **Resource Allocation Optimizer** — Automated officer & barricade deployment planning
+- 📊 **Historical SOPs** — Data-driven standard operating procedures derived from real incident patterns
+
+---
+
+## ⚡ Quick Start (Local Development)
 
 ```bash
 # 1. Clone the repo and enter the directory
@@ -239,6 +272,7 @@ The script reads `Astram event data_anonymized - ...csv` from the project root a
 | **Icons** | Lucide React |
 | **HTTP client** | Axios |
 | **ML** | Python 3, scikit-learn, pandas, NumPy |
+| **Hosting** | [Render](https://render.com) (full-stack deployment) |
 | **Design** | Dark Military / Command Center, Glassmorphism, Inter + JetBrains Mono |
 
 ---
@@ -270,6 +304,9 @@ npm run seed
 
 ## 🚀 Deployment
 
+### Live on Render
+The project is **live** at **[https://flow4ward.onrender.com](https://flow4ward.onrender.com)**.
+
 The backend serves the compiled frontend as static files from `frontend/dist/`:
 
 ```bash
@@ -280,4 +317,27 @@ npm run build
 npm start
 ```
 
+### Self-host
 Point your reverse proxy / hosting platform to port `5000`.
+
+> **Render Free Tier Notice:** The service may spin down after inactivity. First request after idle may take ~30s to respond — this is expected behaviour on Render's free plan.
+
+---
+
+## 📁 Dataset
+
+The ML models are trained on the **Astram Bengaluru incident dataset** — 8,205 anonymized traffic incidents recorded between November 2023 and March 2024, covering:
+- Incident types: vehicle breakdown, accident, water logging, public events, VVIP movement, etc.
+- Corridors: ORR, CBD, Tumkur Rd, Hosur Rd, Airport Rd, and more
+- Zones: North, South, East, West, Central, Airport
+
+The CSV file is included in the repository root for full reproducibility.
+
+---
+
+<p align="center">
+  Built with ❤️ for Bengaluru Traffic Intelligence · Hackathon Round 2
+</p>
+<p align="center">
+  <a href="https://flow4ward.onrender.com">🌐 flow4ward.onrender.com</a>
+</p>
