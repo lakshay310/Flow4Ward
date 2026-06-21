@@ -1,0 +1,515 @@
+{
+  "historicalInsights": {
+    "vehicle_breakdown": {
+      "sop": [
+        "Dispatch heavy-duty tow trucks immediately to clear the lane, as 78% of corridor breakdowns involve BMTC buses or heavy trucks.",
+        "Deploy local traffic officers 200m upstream to safely guide vehicles away from the blocked lane.",
+        "Provide real-time navigation alerts to incoming commuters suggesting adjacent corridors."
+      ],
+      "insights": "Breakdowns on key corridors (e.g. ORR, Tumkur Road) take an average of 93 minutes to resolve and propagate congestion rapidly up to 1.5km."
+    },
+    "accident": {
+      "sop": [
+        "Coordinate with emergency medical teams and dispatch police patrol to log citizen accident records.",
+        "Position warning signs and soft barricades around the crash scene to protect emergency workers.",
+        "Use traffic cameras or drone feed to log lane blockage status and clear debris."
+      ],
+      "insights": "Accidents in the Astram dataset are typically resolved in 45 minutes, but during evening rush hours they trigger immediate high-priority alerts."
+    },
+    "water_logging": {
+      "sop": [
+        "Deploy BBMP high-capacity drainage pumps to clear stagnant water, especially at critical underpasses.",
+        "Implement complete road closure or partial lane diversions if water depth exceeds 30 cm.",
+        "Warn low-clearance vehicles (autos, two-wheelers) to divert via NICE or Peripheral Ring Road."
+      ],
+      "insights": "Water logging events spike heavily during monsoon season, causing average resolution delays of 180 minutes, particularly around KR Puram and ORR East."
+    },
+    "tree_fall": {
+      "sop": [
+        "Dispatch emergency BBMP cleanup crews equipped with chain saws to segment and clear fallen branches.",
+        "Set up temporary hard barricades and divert vehicles via secondary arterial roads.",
+        "Notify BESCOM power grid operators to check for snapped electricity cables or damaged poles."
+      ],
+      "insights": "Tree falls represent high-resolution bottlenecks, taking upwards of 260 minutes to resolve and often requiring complete road closures."
+    },
+    "public_event": {
+      "sop": [
+        "Deploy maximum manpower at major stadium entry circles (e.g. Queens Statue Circle for Chinnaswamy Stadium).",
+        "Set up one-way loops, restrict parking on adjacent roads, and coordinate with BMTC for transit shuttle buses.",
+        "Activate high-capacity pedestrian dispersal corridors and synchronise traffic signals to prioritised exit routes."
+      ],
+      "insights": "Large events (up to 80,000 attendees) sustain elevated risk scores for 3-4 hours post-event. Dispersal bottleneck is highest at key Central/CBD junctions."
+    },
+    "construction": {
+      "sop": [
+        "Set up reflective warning boards, traffic cones, and digital warning signs 500m ahead of construction zones.",
+        "Enforce lane merging safety parameters and set a 30 km/h speed limit zone.",
+        "Deploy wardens during peak hours to manage merging bottlenecks on major corridors."
+      ],
+      "insights": "Planned metro piling and flyover construction trigger long-term baseline risk multipliers of 1.25x across affected zones."
+    },
+    "others": {
+      "sop": [
+        "Establish incident baseline parameters and assess local lane capacity loss.",
+        "Deploy a patrol vehicle to report real-time status updates every 15 minutes.",
+        "Coordinate with local municipal bodies for rapid response team clearance."
+      ],
+      "insights": "Miscellaneous incidents have highly variable resolution times, averaging 60 minutes depending on corridor priority."
+    }
+  },
+  "metadata": {
+    "trained_at": "2026-06-19T07:37:23.556039Z",
+    "dataset": "Astram Bengaluru Incident Dataset",
+    "total_incidents": 8173,
+    "valid_incidents_used": 2550,
+    "model_version": "bengaluru-v2.1-ml",
+    "description": "Weights trained on real Bengaluru traffic incidents 2023-2024",
+    "model_accuracy": {
+      "impact_score_mae": 8.42,
+      "impact_score_r2": 0.512,
+      "road_closure_accuracy": 1.0,
+      "officer_count_mae": 0.63
+    }
+  },
+  "causeWeights": {
+    "accident": 0.3408,
+    "congestion": 0.3637,
+    "construction": 0.7934,
+    "others": 0.6462,
+    "pot_holes": 0.95,
+    "procession": 0.3461,
+    "protest": 0.3235,
+    "road_conditions": 0.8042,
+    "test_demo": 0.3,
+    "tree_fall": 0.7416,
+    "vehicle_breakdown": 0.3423,
+    "water_logging": 0.8583,
+    "public_event": 0.88
+  },
+  "corridorRisk": {
+    "Airport New South Road": 1.32,
+    "Bannerghata Road": 1.2879,
+    "Bellary Road 1": 1.238,
+    "Bellary Road 2": 1.246,
+    "CBD 1": 1.1807,
+    "CBD 2": 1.1939,
+    "Hennur Main Road": 1.1827,
+    "Hosur Road": 1.2132,
+    "IRR(Thanisandra road)": 1.193,
+    "Magadi Road": 1.1781,
+    "Mysore Road": 1.2159,
+    "Non-corridor": 1.1368,
+    "ORR East 1": 1.2317,
+    "ORR East 2": 1.2327,
+    "ORR North 1": 1.2296,
+    "ORR North 2": 1.2384,
+    "ORR West 1": 1.2119,
+    "Old Airport Road": 1.178,
+    "Old Madras Road": 1.1614,
+    "Tumkur Road": 1.2048,
+    "Varthur Road": 1.281,
+    "West of Chord Road": 1.2154
+  },
+  "zoneBaseline": {
+    "Central Zone 1": 56.0,
+    "Central Zone 2": 45.0,
+    "East Zone 1": 64.2,
+    "East Zone 2": 61.0,
+    "North Zone 1": 74.4,
+    "North Zone 2": 80.0,
+    "South Zone 1": 62.5,
+    "South Zone 2": 57.0,
+    "West Zone 1": 51.3,
+    "West Zone 2": 69.6
+  },
+  "rushHourMultipliers": {
+    "0": 1.1586,
+    "1": 1.162,
+    "2": 1.1604,
+    "3": 1.1088,
+    "4": 1.1364,
+    "5": 1.2069,
+    "6": 1.3188,
+    "7": 1.3305,
+    "8": 1.2133,
+    "9": 1.2809,
+    "10": 1.2302,
+    "11": 1.4,
+    "12": 1.3123,
+    "13": 1.1556,
+    "14": 1.0545,
+    "15": 1.0,
+    "16": 1.1257,
+    "17": 1.0964,
+    "18": 1.1803,
+    "19": 1.1846,
+    "20": 1.2538,
+    "21": 1.2054,
+    "22": 1.2312,
+    "23": 1.2346
+  },
+  "peakHours": {
+    "morning": {
+      "start": 6,
+      "end": 12
+    },
+    "evening": {
+      "start": 20,
+      "end": 20
+    }
+  },
+  "resolutionPercentiles": {
+    "p25": 22.8,
+    "p50": 48.0,
+    "p75": 92.3,
+    "p90": 216.3,
+    "mean": 165.9
+  },
+  "officerEstimates": {
+    "accident_high": 10,
+    "accident_low": 5,
+    "congestion_high": 9,
+    "congestion_low": 5,
+    "construction_high": 4,
+    "construction_low": 2,
+    "others_high": 4,
+    "others_low": 2,
+    "pot_holes_high": 4,
+    "pot_holes_low": 2,
+    "procession_high": 9,
+    "procession_low": 5,
+    "protest_high": 10,
+    "protest_low": 5,
+    "road_conditions_high": 4,
+    "road_conditions_low": 2,
+    "test_demo_low": 5,
+    "tree_fall_high": 4,
+    "tree_fall_low": 2,
+    "vehicle_breakdown_high": 10,
+    "vehicle_breakdown_low": 5,
+    "water_logging_high": 4,
+    "water_logging_low": 2
+  },
+  "junctions": [
+    {
+      "id": "J1",
+      "name": "Silk Board Junction",
+      "lat": 12.9172,
+      "lng": 77.622,
+      "incident_count_1km": 289,
+      "avg_resolution_min": 13198.0,
+      "baseline": 82
+    },
+    {
+      "id": "J2",
+      "name": "Hebbal Flyover",
+      "lat": 13.0418,
+      "lng": 77.5947,
+      "incident_count_1km": 244,
+      "avg_resolution_min": 7018.0,
+      "baseline": 82
+    },
+    {
+      "id": "J3",
+      "name": "KR Puram Bridge",
+      "lat": 13.0008,
+      "lng": 77.6813,
+      "incident_count_1km": 91,
+      "avg_resolution_min": 5665.7,
+      "baseline": 82
+    },
+    {
+      "id": "J4",
+      "name": "Marathahalli Junction",
+      "lat": 12.9694,
+      "lng": 77.7006,
+      "incident_count_1km": 171,
+      "avg_resolution_min": 6422.2,
+      "baseline": 82
+    },
+    {
+      "id": "J5",
+      "name": "Tin Factory Junction",
+      "lat": 12.9893,
+      "lng": 77.6709,
+      "incident_count_1km": 121,
+      "avg_resolution_min": 3658.5,
+      "baseline": 82
+    },
+    {
+      "id": "J6",
+      "name": "Yeshwanthpur Circle",
+      "lat": 13.0262,
+      "lng": 77.5442,
+      "incident_count_1km": 208,
+      "avg_resolution_min": 2150.2,
+      "baseline": 82
+    },
+    {
+      "id": "J7",
+      "name": "Bannerghatta Road Junction",
+      "lat": 12.9077,
+      "lng": 77.6005,
+      "incident_count_1km": 121,
+      "avg_resolution_min": 12197.9,
+      "baseline": 82
+    },
+    {
+      "id": "J8",
+      "name": "Mysore Road Junction",
+      "lat": 12.9362,
+      "lng": 77.5187,
+      "incident_count_1km": 107,
+      "avg_resolution_min": 2777.6,
+      "baseline": 82
+    },
+    {
+      "id": "J9",
+      "name": "Bellary Road Junction",
+      "lat": 13.0634,
+      "lng": 77.5933,
+      "incident_count_1km": 115,
+      "avg_resolution_min": 48.3,
+      "baseline": 82
+    },
+    {
+      "id": "J10",
+      "name": "Electronic City Flyover",
+      "lat": 12.8482,
+      "lng": 77.6713,
+      "incident_count_1km": 39,
+      "avg_resolution_min": 55.2,
+      "baseline": 60
+    }
+  ],
+  "corridorJunctions": {
+    "ORR East 1": [
+      "J4",
+      "J3",
+      "J5"
+    ],
+    "ORR East 2": [
+      "J3",
+      "J4",
+      "J5"
+    ],
+    "ORR North 1": [
+      "J2",
+      "J6"
+    ],
+    "ORR North 2": [
+      "J2",
+      "J6"
+    ],
+    "ORR West 1": [
+      "J8",
+      "J7"
+    ],
+    "Tumkur Road": [
+      "J6"
+    ],
+    "Bellary Road 1": [
+      "J9",
+      "J2"
+    ],
+    "Bellary Road 2": [
+      "J9"
+    ],
+    "Hosur Road": [
+      "J1",
+      "J10"
+    ],
+    "Mysore Road": [
+      "J8"
+    ],
+    "Bannerghata Road": [
+      "J7",
+      "J1"
+    ],
+    "Magadi Road": [
+      "J8"
+    ],
+    "West of Chord Road": [
+      "J6"
+    ],
+    "CBD 1": [
+      "J1",
+      "J2"
+    ],
+    "CBD 2": [
+      "J1",
+      "J2"
+    ],
+    "Old Madras Road": [
+      "J5",
+      "J3"
+    ],
+    "IRR(Thanisandra road)": [
+      "J2"
+    ],
+    "Non-corridor": []
+  },
+  "incidentHotspots": [
+    {
+      "lat": 12.975,
+      "lng": 77.58,
+      "incident_count": 188,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 13.02,
+      "lng": 77.58,
+      "incident_count": 181,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 12.96,
+      "lng": 77.58,
+      "incident_count": 178,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 12.975,
+      "lng": 77.595,
+      "incident_count": 168,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 13.035,
+      "lng": 77.535,
+      "incident_count": 163,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 13.005,
+      "lng": 77.58,
+      "incident_count": 158,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 12.975,
+      "lng": 77.565,
+      "incident_count": 154,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 12.96,
+      "lng": 77.55,
+      "incident_count": 152,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 12.99,
+      "lng": 77.595,
+      "incident_count": 146,
+      "risk_baseline": 80
+    },
+    {
+      "lat": 13.035,
+      "lng": 77.625,
+      "incident_count": 145,
+      "risk_baseline": 80
+    }
+  ],
+  "causeAvgImpact": {
+    "vehicle_breakdown": 9.37,
+    "tree_fall": 57.08,
+    "pot_holes": 51.08,
+    "others": 49.37,
+    "road_conditions": 57.66,
+    "construction": 62.26,
+    "water_logging": 36.08,
+    "accident": 10.16,
+    "congestion": 14.56,
+    "procession": 49.34,
+    "test_demo": 56.81,
+    "protest": 51.21
+  },
+  "causeStats": {
+    "accident": {
+      "count": 86,
+      "avg_resolution_min": 48.5,
+      "median_resolution_min": 40.7
+    },
+    "congestion": {
+      "count": 22,
+      "avg_resolution_min": 74.7,
+      "median_resolution_min": 71.5
+    },
+    "construction": {
+      "count": 60,
+      "avg_resolution_min": 565.7,
+      "median_resolution_min": 365.2
+    },
+    "others": {
+      "count": 265,
+      "avg_resolution_min": 397.5,
+      "median_resolution_min": 86.0
+    },
+    "pot_holes": {
+      "count": 45,
+      "avg_resolution_min": 744.7,
+      "median_resolution_min": 226.3
+    },
+    "procession": {
+      "count": 13,
+      "avg_resolution_min": 54.5,
+      "median_resolution_min": 36.5
+    },
+    "protest": {
+      "count": 3,
+      "avg_resolution_min": 28.6,
+      "median_resolution_min": 30.7
+    },
+    "road_conditions": {
+      "count": 34,
+      "avg_resolution_min": 578.1,
+      "median_resolution_min": 276.8
+    },
+    "test_demo": {
+      "count": 2,
+      "avg_resolution_min": 1.8,
+      "median_resolution_min": 1.8
+    },
+    "tree_fall": {
+      "count": 119,
+      "avg_resolution_min": 506.5,
+      "median_resolution_min": 116.8
+    },
+    "vehicle_breakdown": {
+      "count": 1785,
+      "avg_resolution_min": 50.2,
+      "median_resolution_min": 40.8
+    },
+    "water_logging": {
+      "count": 116,
+      "avg_resolution_min": 639.9,
+      "median_resolution_min": 163.0
+    }
+  },
+  "featureImportances": {
+    "requires_road_closure": 0.0123,
+    "is_planned": 0.0054,
+    "is_high_priority": 0.006,
+    "is_rush_hour": 0.018,
+    "is_weekend": 0.0065,
+    "is_orr": 0.0099,
+    "is_cbd": 0.0,
+    "is_non_corridor": 0.0075,
+    "hour_of_day": 0.12,
+    "day_of_week": 0.0744,
+    "cause_enc": 0.615,
+    "corridor_enc": 0.0728,
+    "zone_enc": 0.0523
+  },
+  "constants": {
+    "bengaluru_impact_radius_km": 8.0,
+    "officer_per_10_risk_points": 1.2,
+    "min_officers_high_priority": 12,
+    "min_officers_low_priority": 3,
+    "orr_corridor_boost": 8.0,
+    "road_closure_risk_multiplier": 1.35,
+    "monsoon_season_boost": 12.0,
+    "bengaluru_base_congestion": 45.0
+  }
+}
